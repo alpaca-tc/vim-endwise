@@ -42,20 +42,20 @@ augroup END " }}}1
 if maparg("<Plug>DiscretionaryEnd") == ""
   inoremap <silent> <SID>DiscretionaryEnd <C-R>=<SID>crend(0)<CR>
   inoremap <silent> <SID>AlwaysEnd        <C-R>=<SID>crend(1)<CR>
-  imap    <script> <Plug>DiscretionaryEnd <SID>DiscretionaryEnd
-  imap    <script> <Plug>AlwaysEnd        <SID>AlwaysEnd
+  imap    <silent><script> <Plug>DiscretionaryEnd <SID>DiscretionaryEnd
+  imap    <silent><script> <Plug>AlwaysEnd        <SID>AlwaysEnd
 endif
 if maparg('<CR>','i') =~# '<C-R>=.*crend(.)<CR>\|<\%(Plug\|SID\)>.*End'
   " Already mapped
 elseif maparg('<CR>','i') =~ '<CR>'
-  exe "imap <script> <C-X><CR> ".maparg('<CR>','i')."<SID>AlwaysEnd"
-  exe "imap <script> <CR>      ".maparg('<CR>','i')."<SID>DiscretionaryEnd"
+  exe "imap <silent><script> <C-X><CR> ".maparg('<CR>','i')."<SID>AlwaysEnd"
+  exe "imap <silent><script> <CR>      ".maparg('<CR>','i')."<SID>DiscretionaryEnd"
 elseif maparg('<CR>','i') =~ '<Plug>delimitMateCR'
-  exe "imap <C-X><CR> ".maparg('<CR>', 'i')."<Plug>AlwaysEnd"
-  exe "imap <CR> ".maparg('<CR>', 'i')."<Plug>DiscretionaryEnd"
+  exe "imap <silent><C-X><CR> ".maparg('<CR>', 'i')."<Plug>AlwaysEnd"
+  exe "imap <silent><CR> ".maparg('<CR>', 'i')."<Plug>DiscretionaryEnd"
 else
-  imap <C-X><CR> <CR><Plug>AlwaysEnd
-  imap <CR>      <CR><Plug>DiscretionaryEnd
+  imap <silent><C-X><CR> <CR><Plug>AlwaysEnd
+  imap <silent><CR>      <CR><Plug>DiscretionaryEnd
 endif
 
 if maparg('<M-o>','i') == ''
