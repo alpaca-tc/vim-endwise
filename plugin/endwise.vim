@@ -54,7 +54,7 @@ elseif maparg('<CR>','i') =~ '<Plug>delimitMateCR'
   exe "imap <silent><C-X><CR> ".maparg('<CR>', 'i')."<Plug>AlwaysEnd"
   exe "imap <silent><CR> ".maparg('<CR>', 'i')."<Plug>DiscretionaryEnd"
 else
-  imap <silent><C-X><CR> <CR><Plug>AlwaysEnd
+  " imap <silent><C-X><CR> <CR><Plug>AlwaysEnd
   imap <silent><CR>      <CR><Plug>DiscretionaryEnd
 endif
 
