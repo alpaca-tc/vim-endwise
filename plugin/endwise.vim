@@ -116,6 +116,10 @@ function! s:crend(always)
   return y
 endfunction
 
+function! g:crend(always)
+  return s:crend(a:always)
+endfunction
+
 function! s:synname()
   " Checking this helps to force things to stay in sync
   while s:lastline < line('.')
