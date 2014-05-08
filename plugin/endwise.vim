@@ -116,7 +116,7 @@ function! s:crend(always)
   return y
 endfunction
 
-function! g:crend(always)
+function! CustomCrend(always)
   return s:crend(a:always)
 endfunction
 
